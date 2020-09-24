@@ -4,22 +4,16 @@ import java.util.List;
 
 import com.hsbc.model.Employee;
 
-
-/**
- * 
- * @author aadish
- *We are going to implement this interface to perform CRUD opetions using EMployee.
- */
 public interface EmployeeDAO {
+	
+	public List<Employee> getAllEmployees();
 
-	public List getAllEmployees();
+	public void insertEmp(Employee e);
 
-	public Employee getEmployee(int id);
+	public void deleteEmployee(int empid);
 
-	public void addEmployee(Employee e);
+	public void updateEmployeeSalary(int empid, double salary);
 
-	public void updateEmployee(Employee e);
-
-	public void deleteEmployee(Employee e);
+	public Employee getEmployee(int empid);
 
 }
