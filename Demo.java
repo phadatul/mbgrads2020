@@ -1,36 +1,40 @@
-package com.hsbc.dataprocessing;
+package com.hsbc.Main;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.hsbc.dao.BookDAOImpl;
+import com.hsbc.model.Book;
+
 public class Demo {
 	public static void main(String[] args) {
-		// MyStack<Employee> s=new MyStack<Employee>();
-
-		MyStack<Employee> s = new MyStack<Employee>();
-
-		ArrayList<Employee> list = new ArrayList<Employee>();
-
 		Set<String> set1 = new HashSet<String>();
-		set1.add("Java");
-		set1.add("Python");
-		
+		set1.add("Dan Brown");
+		set1.add("Cathy Sierra");
 		Set<String> set2 = new HashSet<String>();
-		set2.add("SQL");
-		set2.add("MongoDB");
+		set2.add("HI");
+		set2.add("CBYE");
 
-		list.add(new Employee(12, "abc", 98, set1));
-		list.add(new Employee(2, "pqr", 67, null));
-		list.add(new Employee(45, "mno", 23, set2));
-		list.add(new Employee(1, "xyz", 99, set1));
-		IdCompare id = new IdCompare();
-		NameComparator name = new NameComparator();
+		Book b1 = new Book(1, "abc", set1, 450);
+		Book b2 = new Book(2, "mno", set2, 499);
+		Book b3 = new Book(6, "asd", set1, 199);
+		Book b4 = new Book(22, "www", set2, 999);
 
-		Collections.sort(list, id);
-		System.out.println(list);
+		BookDAOImpl db = new BookDAOImpl();
+		db.insertBook(b1);
+		db.insertBook(b2);
+		db.insertBook(b3);
+		db.insertBook(b4);
 
+		System.out.println(db.getAllBooks());
+
+		db.deleteBook(new Book(1, "abc", set1, 450));
+		db.deleteBook(new Book(6, "asd", set1, 199));
+		System.out.println(db.getAllBooks());
+
+		//db.updateBook(b1, new Book(1, "abcD", set2, 600));
+
+		//System.out.println(db.getAllBooks());
 	}
 
 }
