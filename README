@@ -1,0 +1,12 @@
+Author: Riya Puri
+
+There are total 3 Packages-
+
+#com.hsbc.model - 3 classes
+Apparel, Electronics and FoodItems CLasses
+
+#com.hsbc.utilities- 6 classes
+ApparelDAO, ApparelDAOImp, ElectronicsDAO, ElectronicsDAOImp, FoodItemsDAO, FoodItemsDAOImp
+
+#com.hsbc.view - 1 class
+Test
