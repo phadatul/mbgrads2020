@@ -22,7 +22,7 @@ public class DBConnection {
 
 	public Statement getStatement() {
 		try {
-			con = DriverManager.getConnection("jdbc:derby://localhost:1527/web");
+			con = DriverManager.getConnection("jdbc:derby://localhost:1527/newdb;create=true");
 			st = con.createStatement();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -33,7 +33,7 @@ public class DBConnection {
 
 	public PreparedStatement getPreparedStatement(String sql) {
 		try {
-			con = DriverManager.getConnection("jdbc:derby://localhost:1527/web");
+			con = DriverManager.getConnection("jdbc:derby://localhost:1527/newdb;create=true");
 			pst = con.prepareStatement(sql);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
