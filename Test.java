@@ -1,46 +1,38 @@
-package com.hsbc.Main;
+package com.hsbc.dao;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-
-import com.hsbc.model.Book;
-import com.hsbc.utility.PrintUtil;
-import com.hsbc.utility.SortUtil;
-import com.hsbc.utility.StoreUtil;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Test {
+
 	public static void main(String[] args) {
-		Set<String> set1 = new HashSet<String>();
-		set1.add("Dan Brown");
-		set1.add("Cathy Sierra");
-		Set<String> set2 = new HashSet<String>();
-		set1.add("HI");
-		set1.add("CBYE");
+		try {
+			Class.forName("org.apache.derby.jdbc.ClientDriver");
 
-		Book b1 = new Book(1, "abc", set1, 450);
-		Book b2 = new Book(2, "mno", set2, 499);
-		Book b3 = new Book(6, "asd", set1, 199);
-		Book b4 = new Book(22, "www", set2, 999);
+			Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/abcd;create=true");
 
-		StoreUtil<Book> store = new StoreUtil<Book>();
-		store.addRecord(b1);
-		store.addRecord(b3);
-		store.addRecord(b2);
-		store.addRecord(b4);
+			// insert into helloworld values(1,'abc',99)
 
-		PrintUtil.printRecords(store.getRecords());
-		SortUtil.sortByPrice(store.getRecords());
-		PrintUtil.printRecords(store.getRecords());
-		SortUtil.sortByName(store.getRecords());
-		PrintUtil.printRecords(store.getRecords());
+			// boolean execute(String) CREATE, ALTER, DROP, TRUNCATE
+			// ResultSet executeQuery(String)
+			// int executeUpdate(String) INSERT, UPDATE, DELETE
+			Statement st = con.createStatement();
+			
+			st.execute("create table users(username varchar(20),password varchar(20))");
+			con.close();
 
-		
-		ArrayList<String> x=new ArrayList<String>();
-		x.add("ATUL");
-		x.add("AADISH");
-		
-		PrintUtil.printRecords(x);
+		} catch (ClassNotFoundException ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		} catch (SQLException ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		}
+
 	}
 
 }
