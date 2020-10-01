@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+p{
+display:none;
+}
+</style>
+<script>
+	function hello() {
+		var x = document.getElementById('txt').value;
+		if(x!="admin"){
+			document.getElementById('msg').style.display="inline";
+		}
+		
+		
+	}
+</script>
+</head>
+<body>
+<%! String s="";%>
+	
+		<input type="text" id="txt">
+		<p id="msg"><%=s %></p>
+		<button onclick="hello()">Ok</button>
+	
+</body>
+</html>
