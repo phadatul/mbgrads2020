@@ -1,0 +1,26 @@
+@charset "ISO-8859-1";
+.container1
+{
+	width:35%;
+	height:auto;
+	margin-top:5%;
+	background-color:#202020;
+	border-radius:20px;
+	border:3px solid white;
+	
+	
+}
+
+
+
+
+form{
+	padding:8%;
+}
+label{
+	color:white;
+}
+button{
+	
+	width:49%;
+}
